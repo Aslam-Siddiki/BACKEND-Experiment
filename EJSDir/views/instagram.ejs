@@ -1,0 +1,23 @@
+<%- include("includes/head.ejs") %>
+    <title>instagram.ejs</title>
+    <body style="background-color: pink; ">
+        <h2>This page belong to @ <%= username %> </h2>
+        <button>Follow</button>
+        <button>Message</button>
+        <hr>
+        <h3> Account that @ <%= username %> follow: </h3>
+        <% for(let name of followers) { %>
+           <li> <%= name %> </li>
+        <% } %>
+        <hr>
+        <h3>Account that @ <%= username%> follow: </h3>
+        <% for (let user of following) { %>
+            <li> <%= user %> </li>
+       <% } %>
+       <hr>
+       <%- include("includes/footer") %>
+    </body>
+</html>
+
+
+   

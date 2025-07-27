@@ -1,0 +1,20 @@
+body{
+    background-color: azure;
+}
+
+.div{
+    height: 25rem;
+    width: 25rem;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #e74c3c;
+    color: azure;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 5rem;
+}
