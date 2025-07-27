@@ -26,5 +26,5 @@
 
 ---
 ### AUTHOR
-- ASLAM-SIDDIKI<br>
+- ASLAM-SIDDIKI
 Connect with me on www.linkedin.com/in/aslam-siddiki-9913ba332
