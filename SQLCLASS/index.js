@@ -1,5 +1,3 @@
-// THIS IS RANDOM PRACTICE CODE NOT THE PROJECT.
-
 const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
 const express = require("express");
@@ -16,7 +14,7 @@ app.set("views", path.join(__dirname, "/views"));
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'Delta_app',
+  database: 'delta_app',
   password: 'Aslam@7861'
 });
 
@@ -34,17 +32,23 @@ let getRandomUser = () => {
 // let q = "SHOW TABLES";
 
 // Inserting New Data;
-// let q = "INSERT INTO user(id, username, email, password) VALUES ?";
+let q = "INSERT INTO user(id, username, email, password) VALUES ?";
 
-// let user = ["123","123_newUser","abc_123@gmail.com","abc"];
-// let users = [["123b","123_newUserb","abc_123@gmail.comb","abcb"],
-// ["123c","123_newUserc","abc_123@gmail.comc","abcc"]];
 
-// let data = [];
-// for(let i=1; i<=100; i++){
-//   let user = getRandomUser(); // 100 fake users.
-//   data.push(user);
-// }
+let data = [];
+for(let i=1; i<=100; i++){
+  let user = getRandomUser(); // 100 fake users.
+  data.push(user);
+}
+
+// INSERTING THE DATA IN SQL QUERIES:
+// connection.query(q, [data], (err, result) => {
+//   if (err) {
+//     console.log("Error inserting data:", err);
+//   } else {
+//     console.log("Data inserted successfully:", result.affectedRows);
+//   }
+// });
 
 // THIS IS HOME ROUTE:
 app.get("/",(req, res) =>{
@@ -53,8 +57,6 @@ app.get("/",(req, res) =>{
     connection.query(q,(err, result) => {
       if(err) throw err;
       let count = result[0]["count(*)"];
-  
-      // res.send(result[0]["count(*)"]);
       res.render("home.ejs",{count});
     });
   }
@@ -71,8 +73,6 @@ app.get("/user",(req, res) => {
   try{
     connection.query(q, (err, users) => {
       if(err) throw err;
-      // console.log(result); // for debugging:
-      // res.send(result);
       res.render("showUser.ejs",{ users });
     });
   }
@@ -99,7 +99,7 @@ app.get("/user/:id/edit",(req,res) =>{
     res.send("some error in database");
   }
 
-})
+});
 
 // UPDATE (Databases)ROUTE;
 app.patch("/user/:id",(req, res) =>{
